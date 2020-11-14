@@ -1,0 +1,120 @@
+========================================= TEAM MEMBERS ==========================================
+Zachary Berryhill - GIT: PanamaZack, Chris Lopes
+
+======================================= DIVISION OF LABOR ======================================
+divided by functions:
+
+char* Path_Resolution(char*, int); --Zach BerryHill
+u_int8_t IORedirection(char**, char**, u_int8_t); --Zach BerryHill/Chirs Lopes
+u_int8_t Piping(char***, u_int8_t); --Zach BerryHill/Chirs Lopes
+u_int8_t Which_Command(instruction*, char**); --Zach BerryHill/Chirs Lopes
+u_int8_t separateTokenInst(instruction*); --Zach BerryHill
+u_int8_t Execute(char**, u_int8_t); --Zach BerryHill/Chirs Lopes
+void grabParseInput(instruction*); --Zach BerryHill
+void recursivePiping(char***, int, int); --Zach BerryHill
+void copyCloseFd(int, int); --Zach BerryHill
+void closeFd(int); --Zach BerryHill
+void pipeExit(char*); --Zach BerryHill 
+void prompt(void);--Chirs Lopes
+void BigExit(int exitcounter, pid_t pid[], int); --Chirs Lopes
+void JobsList(pid_t pid[], int); --Chirs Lopes
+void addToken(instruction* instr_ptr, char* tok); --given
+void printTokens(instruction* instr_ptr);--given
+void clearInstruction(instruction* instr_ptr);--given
+void addNull(instruction* instr_ptr);--given
+
+int main() -- Zach BerryHill/Chris Lopes
+
+======================================== RELAVANT FILES =========================================
+shell.c - Final version of source code. No other file student-created source code
+files are needed for submission
+makefile - Makefile for easy compilation
+
+===================================== MAKEFILE DESCRIPTION ======================================
+Once proper files are downloaded, "make" can be typed to compile the source code into a usable
+executable. No bugs have been found during compilation or linking, so there should be no issues
+with this step. If one wishes to remove all executables and run a clean compilation, "make clean"
+can be utilized.
+
+================================= KNOWN BUGS/UNFINISHED PORTIONS ================================
+Partially-Unifinished portions / bugs:
+	Piping: 
+		Piping-only works with two commands. Three commands or more are done in recursive piping function which created garbage 
+		in stdin. Also both forground and background piping commands display after program exit.
+	
+		//------------------------------------------------------------
+		berryhil@shell.cs.fsu.edu:/home/majors/berryhil>
+
+		Please enter an instruction: ls | wc
+
+		berryhil@shell.cs.fsu.edu:/home/majors/berryhil>
+
+		Please enter an instruction: exit
+		Exiting Now!
+		Commands Executed: 2
+			12      12      94
+		berryhil@shell.cs.fsu.edu:~>
+		//-----------------------------------------------------------------
+		Example of double piping: input -> ls-al | wc -w | less 
+			 output -> correct output but corrupts future tokens.
+	
+	//=================================================================================
+	
+	Background execution: 
+		After background processing with redirection or piping, to clear stdin buffer and continue 
+		to enter commands, a letter and enter must be pressed.
+		
+		//---------------------------------------------------------------------------
+		Please enter an instruction: wc < simple-test.c &
+
+		berryhil@shell.cs.fsu.edu:/home/majors/berryhil>
+
+		Please enter an instruction:  15  33 273
+
+		d                               // pressing d and enter
+
+		berryhil@shell.cs.fsu.edu:/home/majors/berryhil>
+
+		Please enter an instruction:
+		//------------------------------------------------------------------------------
+		 
+	cd:
+		If you go below your home directory and then back a seg fault may happen. 
+	        
+		 //--------------------------------------------------------------------------------------
+		 Please enter an instruction: cd ./berryhil
+		Segmentation fault
+		berryhil@linprog3.cs.fsu.edu:~> ./test3
+
+		berryhil@linprog3.cs.fsu.edu:/home/majors/berryhil>
+
+		Please enter an instruction: cd ./Proj-1
+
+		berryhil@linprog3.cs.fsu.edu:/home/majors/berryhil/Proj-1>
+
+		Please enter an instruction:
+                //---------------------------------------------------------------------------------
+	
+===================================== SPECIAL CONSIDERATIONS ====================================
+Extra Credit: Shell-ception works and shell can be called infinitly in itself
+The division of labor is based off of who physically coded each portion of the project. This may
+not be exactly accurate since for the majority of the project, all team members were researching and
+developing better theoretical solutions before a said portion was coded. As such, the GIT commit log 
+is wildly innacurate as well because the person whom had the strongest computer at the time and place 
+of coding was usually the one to commit, even though all others were present.
+
+=================================================================================================
+======================================== CODERS NOTES ===========================================
+================================================================================================= 
+
+file / exec checking works by checking the first command.
+when a piping character is found the token immediatly to the right is checked.
+
+when input redirection character is found it makes sure token immediatly to the right is a valid file.
+
+when output redirection character is seen create a file if it does not exist. delete the file and remake it if
+it exits.
+
+piping logic is under the piping label on and below line 456.
+	two child processes. one execv in each.
+=================================================================================================  

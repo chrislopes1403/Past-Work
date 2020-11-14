@@ -1,0 +1,47 @@
+========================================= TEAM MEMBERS ==========================================
+Zachary Berryhill - GIT: PanamaZack, Chris Lopes, Jean Patrick Roquebert.
+======================================= DIVISION OF LABOR =======================================
+exit- Zachary Berryhill
+info- Zachary Berryhill
+cd - Chris Lopes
+ls - Chris Lopes
+size-Jean Patrick Roquebert
+create-Jean Patrick Roquebert
+mkdir-Chris Lopes
+mv-Chris Lopes
+open-Zachary Berryhill
+close-Zachary Berryhill
+read-Chris Lopes
+write-Zachary Berryhill
+rm-Chris Lopes
+copy-Zachary Berryhill
+menu-Zachary Berryhill
+======================================== RELAVANT FILES =========================================
+File-System.c
+MakeFile
+===================================== MAKEFILE DESCRIPTION ======================================
+Once proper files are downloaded, "make" can be typed to compile the source code into a usable
+executable. No bugs have been found during compilation or linking, so there should be no issues
+with this step. If one wishes to remove all executables and run a clean compilation, "make clean"
+can be utilized.
+================================= KNOWN BUGS/UNFINISHED PORTIONS ================================
+mv:
+  -if the commands arent enter correclty there may be undefined.( error handling of command is lacking)
+ mkdir:
+  -( error handling of command is lacking)
+write:
+  -cannot write more than 512 chars per call. error printed if SIZE > 512.
+ cp:
+  -can only copy to immediate sub-directory.
+  -can only create files in current directory.
+===================================== SPECIAL CONSIDERATIONS ====================================
+Extra Credit:
+Referenced group 5
+=================================================================================================
+========================================== CORRECTIONS ==========================================
+4/27/2020- we made the corrections for read-write -open and close- our error was trying to mnt the file 
+but this is not possible for linprog
+mkdir now work . and .. return to the right directories.
+======================================== CODERS NOTES ===========================================
+================================================================================================= 
+================================================================================================= 

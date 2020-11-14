@@ -1,0 +1,35 @@
+========================================= TEAM MEMBERS ==========================================
+Zachary Berryhill - GIT: PanamaZack, Chris Lopes, Jean Patrick Roquebert.
+======================================= DIVISION OF LABOR =======================================
+Part-1 Chris Lopes
+Part-2 Chris Lopes, Jean Patrick Roquebert 
+Part-3
+elevator.c all functions- Zack BerryHill
+elevator.c -Kthreads and locking- Chris Lopes Jean Patrick Roquebert
+system call configuration Jean Patrick Roquebert, Zack Berryhill
+======================================== RELAVANT FILES =========================================
+Part 1:
+	empty.c
+	empty.trace
+	part1.c
+	part1.trace
+Part 2:
+	my_timer.c
+	Makefile
+Part 3:
+	elevator.c
+	Makefile
+===================================== MAKEFILE DESCRIPTION ======================================
+Once proper files are downloaded, "make" can be typed to compile the source code into a usable
+executable. No bugs have been found during compilation or linking, so there should be no issues
+with this step. If one wishes to remove all executables and run a clean compilation, "make clean"
+can be utilized.
+================================= KNOWN BUGS/UNFINISHED PORTIONS ================================
+
+===================================== SPECIAL CONSIDERATIONS ====================================
+Extra Credit: 
+=================================================================================================
+======================================== CODERS NOTES ===========================================
+================================================================================================= 
+We added the committed header in github so if there is an error please check there. 
+=================================================================================================  
